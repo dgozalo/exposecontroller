@@ -45,7 +45,7 @@ func NewIngressStrategy(client *client.Client, encoder runtime.Encoder, domain s
 		return nil, errors.Wrap(err, "could not create new ingress strategy")
 	}
 	if t == openShift {
-		return nil, errors.New("ingress strategy is not supported on OpenShift, please use Route strategy")
+		glog.Warn("Using ingress strategy with Openshift")
 	}
 
 	if len(domain) == 0 {
